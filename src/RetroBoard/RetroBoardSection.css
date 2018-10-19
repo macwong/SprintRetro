@@ -1,0 +1,27 @@
+.block_topleft {
+    width: 50%;
+    height: 50vh;
+    background-color: #fdfff4;
+    float: left;
+}
+
+.block_topright {
+    width: 50%;
+    height: 50vh;
+    background-color: #fff4fd;
+    float: left;
+}
+
+.block_bottomleft {
+    width: 50%;
+    height: 50vh;
+    background-color: #fff5f4;
+    float: left;
+}
+
+.block_bottomright {
+    width: 50%;
+    height: 50vh;
+    background-color: #f4fff9;
+    float: left;
+}
