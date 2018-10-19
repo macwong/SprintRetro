@@ -1,0 +1,31 @@
+.sticky_note_edit_container {
+    position: absolute;
+    left: 10px;
+    right: 10px;
+    top: 10px;
+    bottom: 10px;
+}
+
+.sticky_note_edit {
+    height: calc(100% - 30px);
+    overflow: hidden;
+}
+
+.sticky_note_edit_container.hidden {
+    display: none;
+}
+
+.sticky_note_toolbar {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.sticky_note_toolbar .btn {
+    margin-left: 10px;
+}
+
+.CodeMirror {
+    background-color: #ffffe3;
+}

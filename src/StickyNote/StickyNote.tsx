@@ -9,11 +9,11 @@ import StickyNoteEdit from './StickyNoteEdit';
 class StickyNote extends React.Component {
     public render() {
         return (
-            <div>
+            <div className="sticky_note_container">
                 <div className="sticky_note">
                     <ReactMarkdown source={"# test\n* test\n* test"} />
-                    <StickyNoteEdit />
                 </div>
+                <StickyNoteEdit />
             </div>
         );
     }
