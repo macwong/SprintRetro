@@ -13,26 +13,26 @@
 }
 
 .block.topleft {
-    background-color: #f4fff9;
+    background-color: #f8fcf8;
     left: 0;
     top: 0;
 }
 
 .block.topright {
-    background-color: #fff5f4;
+    background-color: #fcf1f0;
     left: 50%;
     top: 0;
 }
 
 .block.bottomleft {
-    background-color: #fff4fd;
+    background-color: #eff7ff;
     left: 0;
     top: 50vh;
     bottom: 100vh;
 }
 
 .block.bottomright {
-    background-color: #fdfff4;
+    background-color: #fafaec;
     left: 50%;
     top: 50vh;
     bottom: 100vh;

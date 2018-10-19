@@ -1,0 +1,24 @@
+.sticky_note {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 11vw;
+    height: 11vw;
+    font-size: 1vw;
+}
+
+.block.topleft .sticky_note {
+    background-color: #77dd77;
+}
+
+.block.topright .sticky_note {
+    background-color: #ff6961;
+}
+
+.block.bottomleft .sticky_note {
+    background-color: #aec6cf;
+}
+
+.block.bottomright .sticky_note {
+    background-color: #fdfd96;
+}

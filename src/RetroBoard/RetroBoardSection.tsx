@@ -1,4 +1,5 @@
 import * as React from 'react';
+import StickyNote from '../StickyNote/StickyNote';
 import './RetroBoardSection.css';
 
 interface IRetroBoardSectionProps {
@@ -11,6 +12,9 @@ class RetroBoardSection extends React.Component<IRetroBoardSectionProps> {
         return (
             <div className={this.props.className}>
                 <h1>{this.props.title}</h1>
+                <div>
+                    <StickyNote />
+                </div>
             </div>
         );
     }
