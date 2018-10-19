@@ -13,8 +13,8 @@ class StickyNote extends React.Component {
                 <div className="sticky_note">
                     <ReactMarkdown source={"# test\n* test\n* test"} />
                 </div>
-                <div>
-                    <CodeMirror value={"# test\n* test\n* test"} onChange={undefined} options={{ mode: 'markdown', lineNumbers: true }} />
+                <div className="sticky_note">
+                    <CodeMirror value={"# test\n* test\n* test"} onChange={undefined} options={{ mode: 'markdown', lineWrapping: true }} />
                 </div>
             </div>
         );
