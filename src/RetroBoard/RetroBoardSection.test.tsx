@@ -4,6 +4,6 @@ import RetroBoardSection from './RetroBoardSection';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
-  ReactDOM.render(<RetroBoardSection className="block_topleft" />, div);
+  ReactDOM.render(<RetroBoardSection className="block_topleft" title="test" />, div);
   ReactDOM.unmountComponentAtNode(div);
 });

@@ -6,10 +6,10 @@ class RetroBoard extends React.Component {
     public render() {
         return (
             <div>
-                <RetroBoardSection className="block_topleft" />
-                <RetroBoardSection className="block_topright" />
-                <RetroBoardSection className="block_bottomleft" />
-                <RetroBoardSection className="block_bottomright" />
+                <RetroBoardSection className="block topleft" title="Liked" />
+                <RetroBoardSection className="block topright" title="Lacked" />
+                <RetroBoardSection className="block bottomleft" title="Learned" />
+                <RetroBoardSection className="block bottomright" title="Questions / Actions" />
             </div>
         );
     }

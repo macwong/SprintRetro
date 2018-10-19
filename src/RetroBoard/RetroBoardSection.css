@@ -1,27 +1,39 @@
-.block_topleft {
+.block {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 50%;
     height: 50vh;
+    position: fixed;
+    box-sizing: border-box;
+}
+
+.block:hover {
+    border: dotted 2px #aaa;
+}
+
+.block.topleft {
     background-color: #fdfff4;
-    float: left;
+    left: 0;
+    top: 0;
 }
 
-.block_topright {
-    width: 50%;
-    height: 50vh;
+.block.topright {
     background-color: #fff4fd;
-    float: left;
+    left: 50%;
+    top: 0;
 }
 
-.block_bottomleft {
-    width: 50%;
-    height: 50vh;
+.block.bottomleft {
     background-color: #fff5f4;
-    float: left;
+    left: 0;
+    top: 50vh;
+    bottom: 100vh;
 }
 
-.block_bottomright {
-    width: 50%;
-    height: 50vh;
+.block.bottomright {
     background-color: #f4fff9;
-    float: left;
+    left: 50%;
+    top: 50vh;
+    bottom: 100vh;
 }
