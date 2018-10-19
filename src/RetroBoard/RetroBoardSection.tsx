@@ -11,7 +11,6 @@ class RetroBoardSection extends React.Component<IRetroBoardSectionProps> {
         return (
             <div className={this.props.className}>
                 <h1>{this.props.title}</h1>
-                {/* <div>Test</div> */}
             </div>
         );
     }

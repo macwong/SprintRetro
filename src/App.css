@@ -5,4 +5,5 @@ body, h1 {
 
 h1 {
     color: #aaa;
+    user-select: none;
 }
