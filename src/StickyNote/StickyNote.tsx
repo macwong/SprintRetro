@@ -1,11 +1,12 @@
 import * as React from 'react';
+import * as ReactMarkdown from 'react-markdown';
 import './StickyNote.css';
 
 class StickyNote extends React.Component {
     public render() {
         return (
             <div className="sticky_note">
-                This is a test note, something something something something something something something something
+                <ReactMarkdown source={"# test\n* test\n* test"} />
             </div>
         );
     }
