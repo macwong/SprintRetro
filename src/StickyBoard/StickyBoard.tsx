@@ -9,6 +9,9 @@ class StickyBoard extends React.Component {
         return (
             <div className="sticky_board">
                 <StickyNote />
+                <StickyNote />
+                <StickyNote />
+                <StickyNote />
             </div>
         );
     }

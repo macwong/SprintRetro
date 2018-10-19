@@ -4,11 +4,20 @@
     height: 250px;
     background-color: #fdfd96;
     padding: 10px;
+    position: relative;
 }
 
 .sticky_note .ReactCodeMirror {
-    height: 100%;
     overflow: hidden;
+    position: absolute;
+    left: 10px;
+    right: 10px;
+    top: 10px;
+    bottom: 50px;
+}
+
+.sticky_note .ReactCodeMirror.hidden {
+    display: none;
 }
 
 .sticky_note .CodeMirror {
