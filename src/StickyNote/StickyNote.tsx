@@ -1,10 +1,10 @@
 import * as React from 'react';
-import * as CodeMirror from 'react-codemirror';
 import * as ReactMarkdown from 'react-markdown';
 
 import 'codemirror/lib/codemirror.css';
 import 'codemirror/mode/markdown/markdown';
 import './StickyNote.css';
+import StickyNoteEdit from './StickyNoteEdit';
 
 class StickyNote extends React.Component {
     public render() {
@@ -12,7 +12,7 @@ class StickyNote extends React.Component {
             <div>
                 <div className="sticky_note">
                     <ReactMarkdown source={"# test\n* test\n* test"} />
-                    <CodeMirror value={"# test\n* test\n* test"} onChange={undefined} options={{ mode: 'markdown', lineWrapping: true }} />
+                    <StickyNoteEdit />
                 </div>
             </div>
         );

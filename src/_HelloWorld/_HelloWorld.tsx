@@ -4,7 +4,7 @@ import './_HelloWorld.css';
 class HelloWorld extends React.Component {
     public render() {
         return (
-            <div className="App">
+            <div>
                 test
             </div>
         );
