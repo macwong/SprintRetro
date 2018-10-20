@@ -11,6 +11,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 interface IStickyNoteProps {
     initialNote: string;
+    index: number;
+    deleteEvent: (index: number) => void;
 }
 
 interface IStickyNoteState {
@@ -57,10 +59,14 @@ class StickyNote extends React.Component<IStickyNoteProps, IStickyNoteState> {
                     <div className="sticky_note" onClick={this.editClick}>
                         <ReactMarkdown source={this.state.note} />
                     </div>
-                    <button className="btn btn_delete"><FontAwesomeIcon icon={SolidIcons.faTrashAlt} /></button>
+                    <button className="btn btn_delete" onClick={this.deleteClick.bind(this, this.props.index)}><FontAwesomeIcon icon={SolidIcons.faTrashAlt} /></button>
                 </div>
             );
         }
+    }
+
+    private deleteClick(index: number) {
+        this.props.deleteEvent(index);
     }
 
     private editClick(e: any) {
