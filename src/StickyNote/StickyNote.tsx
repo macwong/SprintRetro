@@ -9,20 +9,24 @@ import './StickyNote.css';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+interface IStickyNoteProps {
+    initialNote: string;
+}
+
 interface IStickyNoteState {
     code: string;
     editMode: boolean;
-    notes: string;
+    note: string;
 }
 
-class StickyNote extends React.Component<{}, IStickyNoteState> {
-    constructor(props: {}) {
+class StickyNote extends React.Component<IStickyNoteProps, IStickyNoteState> {
+    constructor(props: IStickyNoteProps) {
         super(props);
 
         this.state = {
-            code: "## Click to change\n(**Markdown** supported)",
+            code: this.props.initialNote,
             editMode: false,
-            notes: "## Click to change\n(**Markdown** supported)"
+            note: this.props.initialNote
         };
 
         this.editClick = this.editClick.bind(this);
@@ -51,7 +55,7 @@ class StickyNote extends React.Component<{}, IStickyNoteState> {
             return (
                 <div className="sticky_note_container">
                     <div className="sticky_note" onClick={this.editClick}>
-                        <ReactMarkdown source={this.state.notes} />
+                        <ReactMarkdown source={this.state.note} />
                     </div>
                     <button className="btn btn_delete"><FontAwesomeIcon icon={SolidIcons.faTrashAlt} /></button>
                 </div>
@@ -67,7 +71,7 @@ class StickyNote extends React.Component<{}, IStickyNoteState> {
 
     private cancelClick(e: any) {
         this.setState({
-            code: this.state.notes,
+            code: this.state.note,
             editMode: false
         });
     }
@@ -75,7 +79,7 @@ class StickyNote extends React.Component<{}, IStickyNoteState> {
     private saveClick(e: any) {
         this.setState({
             editMode: false,
-            notes: this.state.code
+            note: this.state.code
         });
     }
 

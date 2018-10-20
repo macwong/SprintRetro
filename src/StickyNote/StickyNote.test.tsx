@@ -4,6 +4,6 @@ import StickyNote from './StickyNote';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
-  ReactDOM.render(<StickyNote />, div);
+  ReactDOM.render(<StickyNote initialNote="test" />, div);
   ReactDOM.unmountComponentAtNode(div);
 });
