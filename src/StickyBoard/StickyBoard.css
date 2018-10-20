@@ -6,23 +6,18 @@
     padding: 50px;
 }
 
-.add_sticky_note {
-    width: 220px;
-    height: 220px;
-    padding: 10px;
-    margin: 20px;
+.add_sticky_note_container {
     cursor: pointer;
-    transition: 
-        transform .15s linear,
-        border .15s linear,
-        box-shadow .15s linear;
-        
     border: dashed 2px black;
+    background-color: white;
+    box-shadow: none;
+    font-size: 5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.add_sticky_note:hover {
-    transform: scale(1.1);
+.add_sticky_note_container:hover {
     background-color: #fdfd96;
     border: solid 1px #eee;
-    box-shadow: 5px 5px 7px rgba(33, 33, 33, .7);
 }

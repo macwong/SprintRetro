@@ -17,7 +17,11 @@
     box-shadow: 5px 5px 7px rgba(33, 33, 33, .7);
 
     transform: scale(0.9);
-    transition: transform .15s linear;
+    transition: 
+        transform .15s linear,
+        background-color .15s linear,
+        border .15s linear,
+        box-shadow .15s linear;
 }
 
 .sticky_note {

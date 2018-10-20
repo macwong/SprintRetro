@@ -1,4 +1,7 @@
+import * as SolidIcons from '@fortawesome/free-solid-svg-icons';
 import * as React from 'react';
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import StickyNote from '../StickyNote/StickyNote';
 
@@ -34,7 +37,7 @@ class StickyBoard extends React.Component<{}, IStickyBoardState> {
 
         this.deleteStickyNote = this.deleteStickyNote.bind(this);
     }
-    
+
     public render() {
         return (
             <div className="sticky_board">
@@ -43,8 +46,10 @@ class StickyBoard extends React.Component<{}, IStickyBoardState> {
                         return <StickyNote key={value.id} index={value.id} initialNote={value.note} deleteEvent={this.deleteStickyNote} />
                     })
                 }
-                <div className="add_sticky_note">
-                    Add note...
+                <div className="add_sticky_note_container sticky_note_container">
+                    <div className="add_sticky_note">
+                        <FontAwesomeIcon icon={SolidIcons.faPlus} />
+                    </div>
                 </div>
             </div>
         );
