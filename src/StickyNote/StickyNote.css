@@ -20,7 +20,18 @@
 .sticky_note {
     height: 100%;
     font-family: 'ReenieBeenie';
-    font-size: 2em;
+    font-size: 1.75em;
+    cursor: text;
+    overflow: auto;
+}
+
+.sticky_note h1, .sticky_note h2, .sticky_note h3, .sticky_note h4, .sticky_note h5, .sticky_note ul, .sticky_note p {
+    margin: 0;
+}
+
+.sticky_note table, .sticky_note th, .sticky_note td {
+    border-collapse: collapse;
+    border: solid 2px black;
 }
 
 .sticky_note_container .sticky_note_toolbar {
@@ -63,7 +74,7 @@
 }
 
 /* Style buttons */
-.sticky_note_toolbar .btn {
+.btn {
     background-color: DodgerBlue;
     /* Blue background */
     border: none;
@@ -81,8 +92,25 @@
     height: 40px;
 }
 
+.btn.btn_delete {
+    background-color: red;
+    border-radius: 100%;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: none;
+}
+
+.btn.btn_delete:hover {
+    background-color: darkred;
+}
+
+.sticky_note_container:hover .btn.btn_delete {
+    display: block;
+}
+
 /* Darker background on mouse-over */
-.sticky_note_toolbar .btn:hover {
+.btn:hover {
     background-color: RoyalBlue;
 }
 
