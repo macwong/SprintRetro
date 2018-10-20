@@ -43,6 +43,9 @@ class StickyBoard extends React.Component<{}, IStickyBoardState> {
                         return <StickyNote key={value.id} index={value.id} initialNote={value.note} deleteEvent={this.deleteStickyNote} />
                     })
                 }
+                <div className="add_sticky_note">
+                    Add note...
+                </div>
             </div>
         );
     }
