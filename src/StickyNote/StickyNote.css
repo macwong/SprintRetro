@@ -9,6 +9,8 @@
 
 .sticky_note {
     height: 100%;
+    font-family: 'ReenieBeenie';
+    font-size: 2em;
 }
 
 .sticky_note_container .sticky_note_toolbar {
