@@ -13,8 +13,8 @@ class StickyNoteEdit extends React.Component {
                     <CodeMirror value={"# test\n* test\n* test"} onChange={undefined} options={{ mode: 'markdown', lineWrapping: true }} />
                 </div>
                 <div className="sticky_note_toolbar">
-                <button className="btn"><FontAwesomeIcon icon={SolidIcons.faSave} /></button>
-                <button className="btn"><FontAwesomeIcon icon={SolidIcons.faBan} /></button>
+                    <button className="btn"><FontAwesomeIcon icon={SolidIcons.faSave} /></button>
+                    <button className="btn"><FontAwesomeIcon icon={SolidIcons.faBan} /></button>
                 </div>
             </div>
         );

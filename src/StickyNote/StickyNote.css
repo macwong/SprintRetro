@@ -5,8 +5,19 @@
     background-color: #fdfd96;
     padding: 10px;
     position: relative;
-
 }
 
-/* .sticky_note {
-} */
+.sticky_note {
+    height: 100%;
+}
+
+.sticky_note_container .sticky_note_toolbar {
+    position: absolute;
+    bottom: 0;
+    right: 10px;
+    display: none;
+}
+
+.sticky_note_container:hover .sticky_note_toolbar {
+    display: block;
+}

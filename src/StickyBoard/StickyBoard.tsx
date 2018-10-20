@@ -8,10 +8,10 @@ class StickyBoard extends React.Component {
     public render() {
         return (
             <div className="sticky_board">
-                <StickyNote />
-                <StickyNote />
-                <StickyNote />
-                <StickyNote />
+                <StickyNote blah={1} />
+                <StickyNote blah={1} />
+                <StickyNote blah={1} />
+                <StickyNote blah={1} />
             </div>
         );
     }

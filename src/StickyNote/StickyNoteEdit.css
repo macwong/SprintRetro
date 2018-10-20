@@ -7,7 +7,7 @@
 }
 
 .sticky_note_edit {
-    height: calc(100% - 40px);
+    height: calc(100% - 50px);
     overflow: hidden;
 }
 
@@ -35,11 +35,21 @@
     font-size: 20px; /* Set a font size */
     cursor: pointer; /* Mouse pointer on hover */
     border-radius: 5px;
+    width: 40px;
+    height: 40px;
 }
 
 /* Darker background on mouse-over */
 .sticky_note_toolbar .btn:hover {
     background-color: RoyalBlue;
+}
+
+.sticky_note_edit_container .sticky_note_toolbar {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 40px;
 }
 
 .CodeMirror {
