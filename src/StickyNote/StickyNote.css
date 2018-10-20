@@ -25,11 +25,19 @@
     overflow: auto;
 }
 
-.sticky_note h1, .sticky_note h2, .sticky_note h3, .sticky_note h4, .sticky_note h5, .sticky_note ul, .sticky_note p {
+.sticky_note h1,
+.sticky_note h2,
+.sticky_note h3,
+.sticky_note h4,
+.sticky_note h5,
+.sticky_note ul,
+.sticky_note p {
     margin: 0;
 }
 
-.sticky_note table, .sticky_note th, .sticky_note td {
+.sticky_note table,
+.sticky_note th,
+.sticky_note td {
     border-collapse: collapse;
     border: solid 2px black;
 }
@@ -120,6 +128,30 @@
     bottom: 0;
     right: 0;
     height: 40px;
+}
+
+.sticky_note_container:nth-child(even) {
+    -o-transform: rotate(2deg);
+    -webkit-transform: rotate(2deg);
+    -moz-transform: rotate(2deg);
+    position: relative;
+    top: 5px;
+}
+
+.sticky_note_container:nth-child(3n) {
+    -o-transform: rotate(-1deg);
+    -webkit-transform: rotate(-1deg);
+    -moz-transform: rotate(-1deg);
+    position: relative;
+    top: -5px;
+}
+
+.sticky_note_container:nth-child(5n) {
+    -o-transform: rotate(1.5deg);
+    -webkit-transform: rotate(1.5deg);
+    -moz-transform: rotate(1.5deg);
+    position: relative;
+    top: -3px;
 }
 
 .CodeMirror {

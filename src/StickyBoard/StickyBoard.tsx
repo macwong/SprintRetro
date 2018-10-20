@@ -22,6 +22,12 @@ class StickyBoard extends React.Component<{}, IStickyBoardState> {
                 { note: "Test note 2" },
                 { note: "Test note 3" },
                 { note: "## Click to change\n(**Markdown** supported)" },
+                { note: "## Click to change\n(**Markdown** supported)" },
+                { note: "## Click to change\n(**Markdown** supported)" },
+                { note: "## Click to change\n(**Markdown** supported)" },
+                { note: "## Click to change\n(**Markdown** supported)" },
+                { note: "## Click to change\n(**Markdown** supported)" },
+                { note: "## Click to change\n(**Markdown** supported)" },
             ]
         }
     }
