@@ -14,6 +14,10 @@ interface IStickyNoteProps {
     initialNote: string;
     index: number;
     deleteEvent: (index: number) => void;
+    overlayState?: {
+        showOverlay: boolean;
+        triggerShowOverlay: (show: boolean) => void;
+    };
 }
 
 interface IStickyNoteState {
@@ -41,21 +45,17 @@ class StickyNote extends React.Component<IStickyNoteProps, IStickyNoteState> {
     public render() {
         if (this.state.editMode) {
             return (
-                <AppContextConsumer>
-                    {({ showOverlay }) => (
-                        <div className="sticky_note_container edit_mode">
-                            <div className="sticky_note_edit_container">
-                                <div className="sticky_note_edit">
-                                    <CodeMirror value={this.state.code} onChange={this.updateCode} options={{ mode: 'markdown', lineWrapping: true }} />
-                                </div>
-                                <div className="sticky_note_toolbar">
-                                    <button className="btn" onClick={this.saveClick}><FontAwesomeIcon icon={SolidIcons.faSave} /></button>
-                                    <button className="btn" onClick={this.cancelClick}><FontAwesomeIcon icon={SolidIcons.faBan} /></button>
-                                </div>
-                            </div>
+                <div className="sticky_note_container edit_mode">
+                    <div className="sticky_note_edit_container">
+                        <div className="sticky_note_edit">
+                            <CodeMirror value={this.state.code} onChange={this.updateCode} options={{ mode: 'markdown', lineWrapping: true }} />
                         </div>
-                    )}
-                </AppContextConsumer>
+                        <div className="sticky_note_toolbar">
+                            <button className="btn" onClick={this.saveClick}><FontAwesomeIcon icon={SolidIcons.faSave} /></button>
+                            <button className="btn" onClick={this.cancelClick}><FontAwesomeIcon icon={SolidIcons.faBan} /></button>
+                        </div>
+                    </div>
+                </div>
             );
         }
         else {
@@ -74,10 +74,18 @@ class StickyNote extends React.Component<IStickyNoteProps, IStickyNoteState> {
         this.props.deleteEvent(index);
     }
 
+    private showHideOverlay(show: boolean) {
+        if (this.props.overlayState !== undefined) {
+            this.props.overlayState.triggerShowOverlay(show);
+        }
+    }
+
     private editClick(e: any) {
         this.setState({
             editMode: true
         });
+
+        this.showHideOverlay(true);
     }
 
     private cancelClick(e: any) {
@@ -85,6 +93,8 @@ class StickyNote extends React.Component<IStickyNoteProps, IStickyNoteState> {
             code: this.state.note,
             editMode: false
         });
+
+        this.showHideOverlay(false);
     }
 
     private saveClick(e: any) {
@@ -92,6 +102,8 @@ class StickyNote extends React.Component<IStickyNoteProps, IStickyNoteState> {
             editMode: false,
             note: this.state.code
         });
+
+        this.showHideOverlay(false);
     }
 
     private updateCode(newCode: any) {
@@ -101,4 +113,8 @@ class StickyNote extends React.Component<IStickyNoteProps, IStickyNoteState> {
     }
 }
 
-export default StickyNote;
+export default React.forwardRef((props: IStickyNoteProps, ref: string) => (
+    <AppContextConsumer>
+        {consumer => <StickyNote {...props} overlayState={consumer} ref={ref} />}
+    </AppContextConsumer>
+));

@@ -2,7 +2,8 @@
 import * as React from 'react';
 
 const AppContext = React.createContext({
-    showOverlay: false
+    showOverlay: false,
+    triggerShowOverlay: (show: boolean) => { return; }
 });
 
 interface IAppContextProviderState {
@@ -24,19 +25,17 @@ export class AppContextProvider extends React.Component<{}, IAppContextProviderS
         return (
             <AppContext.Provider
                 value={{
-                    showOverlay: this.state.showOverlay
+                    showOverlay: this.state.showOverlay,
+                    triggerShowOverlay: (show) => {
+                        this.setState({
+                            showOverlay: show
+                        })
+                    }
                 }}
             >
                 {children}
-                <div style={{ display: this.state.showOverlay ? "block" : "none" }}>sdjfl adshlfdshlkfh daslf hdsklf hdslf hdslf hdaslf </div>
             </AppContext.Provider>
         );
-    }
-
-    public toggleOverlay(show: boolean) {
-        this.setState({
-            showOverlay: show
-        });
     }
 }
 

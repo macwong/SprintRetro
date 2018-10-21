@@ -2,6 +2,7 @@ import * as SolidIcons from '@fortawesome/free-solid-svg-icons';
 import * as React from 'react';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { AppContextConsumer } from '../state/AppContext';
 
 import StickyNote from '../StickyNote/StickyNote';
 
@@ -40,9 +41,14 @@ class StickyBoard extends React.Component<{}, IStickyBoardState> {
                 </div>
                 {
                     this.state.notes.map((value, index) => {
-                        return <StickyNote key={value.id} index={value.id} initialNote={value.note} deleteEvent={this.deleteStickyNote} />
+                        return <StickyNote key={value.id} index={value.id} initialNote={value.note} deleteEvent={this.deleteStickyNote} overlayState={undefined} />
                     })
                 }
+                <AppContextConsumer>
+                    {({ showOverlay }) => (
+                        <div style={{ display: showOverlay ? "block" : "none" }}>sdjfl adshlfdshlkfh daslf hdsklf hdslf hdslf hdaslf </div>
+                    )}
+                </AppContextConsumer>
             </div>
         );
     }
