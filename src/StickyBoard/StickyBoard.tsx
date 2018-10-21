@@ -23,18 +23,7 @@ class StickyBoard extends React.Component<{}, IStickyBoardState> {
         super(props);
 
         this.state = {
-            notes: [
-                { id: 1, note: "Test note 1" },
-                { id: 2, note: "Test note 2" },
-                { id: 3, note: "Test note 3" },
-                { id: 4, note: this.defaultNote },
-                { id: 5, note: this.defaultNote },
-                { id: 6, note: this.defaultNote },
-                { id: 7, note: this.defaultNote },
-                { id: 8, note: this.defaultNote },
-                { id: 9, note: this.defaultNote },
-                { id: 10, note: this.defaultNote },
-            ]
+            notes: []
         };
 
         this.addStickyNote = this.addStickyNote.bind(this);
@@ -65,7 +54,12 @@ class StickyBoard extends React.Component<{}, IStickyBoardState> {
     }
 
     private addStickyNote() {
-        const maxID: number = Math.max.apply(Math, this.state.notes.map((o) => o.id + 1));
+        let maxID = 0;
+
+        if (this.state.notes.length > 0) {
+            maxID = Math.max.apply(Math, this.state.notes.map((o) => o.id + 1));
+        }
+
         const newNote: IStickyNote = {
             id: maxID + 1,
             note: this.defaultNote
