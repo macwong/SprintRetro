@@ -8,6 +8,7 @@ import 'codemirror/mode/markdown/markdown';
 import './StickyNote.css';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { AppContextConsumer } from '../state/AppContext';
 
 interface IStickyNoteProps {
     initialNote: string;
@@ -40,17 +41,21 @@ class StickyNote extends React.Component<IStickyNoteProps, IStickyNoteState> {
     public render() {
         if (this.state.editMode) {
             return (
-                <div className="sticky_note_container edit_mode">
-                    <div className="sticky_note_edit_container">
-                        <div className="sticky_note_edit">
-                            <CodeMirror value={this.state.code} onChange={this.updateCode} options={{ mode: 'markdown', lineWrapping: true }} />
+                <AppContextConsumer>
+                    {({ showOverlay }) => (
+                        <div className="sticky_note_container edit_mode">
+                            <div className="sticky_note_edit_container">
+                                <div className="sticky_note_edit">
+                                    <CodeMirror value={this.state.code} onChange={this.updateCode} options={{ mode: 'markdown', lineWrapping: true }} />
+                                </div>
+                                <div className="sticky_note_toolbar">
+                                    <button className="btn" onClick={this.saveClick}><FontAwesomeIcon icon={SolidIcons.faSave} /></button>
+                                    <button className="btn" onClick={this.cancelClick}><FontAwesomeIcon icon={SolidIcons.faBan} /></button>
+                                </div>
+                            </div>
                         </div>
-                        <div className="sticky_note_toolbar">
-                            <button className="btn" onClick={this.saveClick}><FontAwesomeIcon icon={SolidIcons.faSave} /></button>
-                            <button className="btn" onClick={this.cancelClick}><FontAwesomeIcon icon={SolidIcons.faBan} /></button>
-                        </div>
-                    </div>
-                </div>
+                    )}
+                </AppContextConsumer>
             );
         }
         else {
