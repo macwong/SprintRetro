@@ -6,7 +6,7 @@
     padding: 50px;
 }
 
-.add_sticky_note_container {
+.sticky_note_container.add_sticky_note_container {
     cursor: pointer;
     border: dashed 2px black;
     background-color: white;
@@ -17,7 +17,8 @@
     align-items: center;
 }
 
-.add_sticky_note_container:hover {
+.sticky_note_container.add_sticky_note_container:hover {
     background-color: #fdfd96;
     border: solid 1px #eee;
+    box-shadow: 10px 10px 7px rgba(0, 0, 0, .7);
 }

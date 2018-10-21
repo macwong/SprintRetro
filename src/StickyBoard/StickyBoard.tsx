@@ -41,16 +41,16 @@ class StickyBoard extends React.Component<{}, IStickyBoardState> {
     public render() {
         return (
             <div className="sticky_board">
-                {
-                    this.state.notes.map((value, index) => {
-                        return <StickyNote key={value.id} index={value.id} initialNote={value.note} deleteEvent={this.deleteStickyNote} />
-                    })
-                }
                 <div className="add_sticky_note_container sticky_note_container">
                     <div className="add_sticky_note">
                         <FontAwesomeIcon icon={SolidIcons.faPlus} />
                     </div>
                 </div>
+                {
+                    this.state.notes.map((value, index) => {
+                        return <StickyNote key={value.id} index={value.id} initialNote={value.note} deleteEvent={this.deleteStickyNote} />
+                    })
+                }
             </div>
         );
     }
