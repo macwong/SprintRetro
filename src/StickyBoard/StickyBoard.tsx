@@ -17,6 +17,8 @@ interface IStickyBoardState {
 }
 
 class StickyBoard extends React.Component<{}, IStickyBoardState> {
+    private defaultNote = "## Click to change\n(**Markdown** supported)";
+
     constructor(props: {}) {
         super(props);
 
@@ -25,23 +27,24 @@ class StickyBoard extends React.Component<{}, IStickyBoardState> {
                 { id: 1, note: "Test note 1" },
                 { id: 2, note: "Test note 2" },
                 { id: 3, note: "Test note 3" },
-                { id: 4, note: "## Click to change\n(**Markdown** supported)" },
-                { id: 5, note: "## Click to change\n(**Markdown** supported)" },
-                { id: 6, note: "## Click to change\n(**Markdown** supported)" },
-                { id: 7, note: "## Click to change\n(**Markdown** supported)" },
-                { id: 8, note: "## Click to change\n(**Markdown** supported)" },
-                { id: 9, note: "## Click to change\n(**Markdown** supported)" },
-                { id: 10, note: "## Click to change\n(**Markdown** supported)" },
+                { id: 4, note: this.defaultNote },
+                { id: 5, note: this.defaultNote },
+                { id: 6, note: this.defaultNote },
+                { id: 7, note: this.defaultNote },
+                { id: 8, note: this.defaultNote },
+                { id: 9, note: this.defaultNote },
+                { id: 10, note: this.defaultNote },
             ]
         };
 
+        this.addStickyNote = this.addStickyNote.bind(this);
         this.deleteStickyNote = this.deleteStickyNote.bind(this);
     }
 
     public render() {
         return (
             <div className="sticky_board">
-                <div className="add_sticky_note_container sticky_note_container">
+                <div className="add_sticky_note_container sticky_note_container" onClick={this.addStickyNote}>
                     <div className="add_sticky_note">
                         <FontAwesomeIcon icon={SolidIcons.faPlus} />
                     </div>
@@ -59,6 +62,21 @@ class StickyBoard extends React.Component<{}, IStickyBoardState> {
         this.setState({
             notes: this.state.notes.filter((v) => v.id !== index)
         });
+    }
+
+    private addStickyNote() {
+        const maxID: number = Math.max.apply(Math, this.state.notes.map((o) => o.id + 1));
+        const newNote: IStickyNote = {
+            id: maxID + 1,
+            note: this.defaultNote
+        }
+
+        const newArray = this.state.notes.slice();
+        newArray.unshift(newNote);
+
+        this.setState({
+            notes: newArray
+        })
     }
 }
 
