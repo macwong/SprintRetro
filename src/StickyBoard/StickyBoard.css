@@ -22,3 +22,13 @@
     border: solid 1px #eee;
     box-shadow: 10px 10px 7px rgba(0, 0, 0, .7);
 }
+
+.overlay {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: black;
+    opacity: 0.5;
+}

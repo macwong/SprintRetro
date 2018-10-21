@@ -46,7 +46,7 @@ class StickyBoard extends React.Component<{}, IStickyBoardState> {
                 }
                 <AppContextConsumer>
                     {({ showOverlay }) => (
-                        <div style={{ display: showOverlay ? "block" : "none" }}>sdjfl adshlfdshlkfh daslf hdsklf hdslf hdslf hdaslf </div>
+                        <div className="overlay" style={{ display: showOverlay ? "block" : "none" }} />
                     )}
                 </AppContextConsumer>
             </div>
