@@ -156,13 +156,10 @@
 }
 
 .sticky_note_container:hover,
-.sticky_note_container:focus {
-    -moz-box-shadow: 10px 10px 7px rgba(0, 0, 0, .7);
-    -webkit-box-shadow: 10px 10px 7px rgba(0, 0, 0, .7);
+.sticky_note_container:focus,
+.sticky_note_container.edit_mode {
     box-shadow: 10px 10px 7px rgba(0, 0, 0, .7);
-    -webkit-transform: scale(1);
-    -moz-transform: scale(1);
-    -o-transform: scale(1);
+    transform: scale(1);
     position: relative;
     z-index: 5;
 }

@@ -40,7 +40,7 @@ class StickyNote extends React.Component<IStickyNoteProps, IStickyNoteState> {
     public render() {
         if (this.state.editMode) {
             return (
-                <div className="sticky_note_container">
+                <div className="sticky_note_container edit_mode">
                     <div className="sticky_note_edit_container">
                         <div className="sticky_note_edit">
                             <CodeMirror value={this.state.code} onChange={this.updateCode} options={{ mode: 'markdown', lineWrapping: true }} />
