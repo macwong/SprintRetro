@@ -96,6 +96,12 @@ class StickyNote extends React.Component<IStickyNoteProps, IStickyNoteState> {
     }
 
     private editClick(e: any) {
+        if (this.props.isAdding) {
+            this.setState({
+                code: "## Click to change\n(**Markdown** supported)"
+            });
+        }
+
         this.setState({
             editMode: true
         });
@@ -113,7 +119,6 @@ class StickyNote extends React.Component<IStickyNoteProps, IStickyNoteState> {
     }
 
     private saveClick(e: any) {
-        console.log(this.props.isAdding);
         if (this.props.isAdding === true) {
             if (this.props.addNewEvent) {
                 this.props.addNewEvent(this.state.code);
@@ -121,7 +126,6 @@ class StickyNote extends React.Component<IStickyNoteProps, IStickyNoteState> {
 
             this.setState({
                 editMode: false,
-                note: "## Click to change\n(**Markdown** supported)"
             });
         }
         else {
