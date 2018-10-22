@@ -11,6 +11,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { AppContextConsumer } from '../state/AppContext';
 
 interface IStickyNoteProps {
+    addNewEvent?: (note: string) => void;
+    isAdding?: boolean;
     initialNote: string;
     index: number;
     deleteEvent: (index: number) => void;
@@ -43,9 +45,11 @@ class StickyNote extends React.Component<IStickyNoteProps, IStickyNoteState> {
     }
 
     public render() {
+        let css = "sticky_note_container";
+
         if (this.state.editMode) {
             return (
-                <div className="sticky_note_container edit_mode">
+                <div className={"sticky_note_container edit_mode"}>
                     <div className="sticky_note_edit_container">
                         <div className="sticky_note_edit">
                             <CodeMirror value={this.state.code} onChange={this.updateCode} options={{ mode: 'markdown', lineWrapping: true }} />
@@ -58,9 +62,20 @@ class StickyNote extends React.Component<IStickyNoteProps, IStickyNoteState> {
                 </div>
             );
         }
+        else if (this.props.isAdding) {
+            css += this.props.isAdding ? " add_sticky_note_container" : "";
+
+            return (
+                <div className={css}>
+                    <div className="sticky_note" onClick={this.editClick}>
+                        <FontAwesomeIcon icon={SolidIcons.faPlus} />
+                    </div>
+                </div>
+            );
+        }
         else {
             return (
-                <div className="sticky_note_container">
+                <div className={css}>
                     <div className="sticky_note" onClick={this.editClick}>
                         <ReactMarkdown source={this.state.note} />
                     </div>
@@ -98,10 +113,23 @@ class StickyNote extends React.Component<IStickyNoteProps, IStickyNoteState> {
     }
 
     private saveClick(e: any) {
-        this.setState({
-            editMode: false,
-            note: this.state.code
-        });
+        console.log(this.props.isAdding);
+        if (this.props.isAdding === true) {
+            if (this.props.addNewEvent) {
+                this.props.addNewEvent(this.state.code);
+            }
+
+            this.setState({
+                editMode: false,
+                note: "## Click to change\n(**Markdown** supported)"
+            });
+        }
+        else {
+            this.setState({
+                editMode: false,
+                note: this.state.code
+            });
+        }
 
         this.showHideOverlay(false);
     }

@@ -1,7 +1,5 @@
-import * as SolidIcons from '@fortawesome/free-solid-svg-icons';
 import * as React from 'react';
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { AppContextConsumer } from '../state/AppContext';
 
 import StickyNote from '../StickyNote/StickyNote';
@@ -14,7 +12,8 @@ interface IStickyNote {
 }
 
 interface IStickyBoardState {
-    notes: IStickyNote[]
+    isAdding: boolean;
+    notes: IStickyNote[];
 }
 
 class StickyBoard extends React.Component<{}, IStickyBoardState> {
@@ -24,9 +23,11 @@ class StickyBoard extends React.Component<{}, IStickyBoardState> {
         super(props);
 
         this.state = {
+            isAdding: false,
             notes: []
         };
 
+        this.addMode = this.addMode.bind(this);
         this.addStickyNote = this.addStickyNote.bind(this);
         this.deleteStickyNote = this.deleteStickyNote.bind(this);
     }
@@ -34,11 +35,7 @@ class StickyBoard extends React.Component<{}, IStickyBoardState> {
     public render() {
         return (
             <div className="sticky_board">
-                <div className="add_sticky_note_container sticky_note_container" onClick={this.addStickyNote}>
-                    <div className="add_sticky_note">
-                        <FontAwesomeIcon icon={SolidIcons.faPlus} />
-                    </div>
-                </div>
+                <StickyNote isAdding={true} index={-1} initialNote={this.defaultNote} deleteEvent={this.deleteStickyNote} overlayState={undefined} addNewEvent={this.addStickyNote} />
                 {
                     this.state.notes.map((value, index) => {
                         return <StickyNote key={value.id} index={value.id} initialNote={value.note} deleteEvent={this.deleteStickyNote} overlayState={undefined} />
@@ -59,7 +56,13 @@ class StickyBoard extends React.Component<{}, IStickyBoardState> {
         });
     }
 
-    private addStickyNote() {
+    private addMode() {
+        this.setState({
+            isAdding: true
+        });
+    }
+
+    private addStickyNote(note: string) {
         let maxID = 0;
 
         if (this.state.notes.length > 0) {
@@ -68,13 +71,14 @@ class StickyBoard extends React.Component<{}, IStickyBoardState> {
 
         const newNote: IStickyNote = {
             id: maxID + 1,
-            note: this.defaultNote
+            note
         }
 
         const newArray = this.state.notes.slice();
         newArray.unshift(newNote);
 
         this.setState({
+            isAdding: false,
             notes: newArray
         })
     }
